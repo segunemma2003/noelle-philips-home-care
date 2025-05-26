@@ -18,21 +18,21 @@ const ServicesPage = () => {
       title: "Rehabilitation Therapy",
       description: "Physical, occupational, and speech therapy to help restore independence and improve quality of life.",
       features: ["Physical Therapy", "Occupational Therapy", "Speech Therapy", "Recovery Planning"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Thermometer,
       title: "Chronic Disease Management",
       description: "Specialized care for diabetes, CHF, COPD, and other chronic conditions with ongoing support.",
       features: ["Diabetes Care", "Heart Failure Management", "COPD Support", "Regular Monitoring"],
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Brain,
       title: "Neurological & Orthopedic Care",
       description: "Specialized support for neurological conditions and orthopedic recovery needs.",
       features: ["Stroke Recovery", "Brain Injury Care", "Joint Replacement", "Mobility Support"],
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Shield,
@@ -46,7 +46,7 @@ const ServicesPage = () => {
       title: "Health Education",
       description: "Patient and family education programs to promote understanding and self-care abilities.",
       features: ["Disease Education", "Medication Training", "Lifestyle Coaching", "Family Support"],
-      image: "https://images.unsplash.com/photo-1559757175-7a4ea0e8ea42?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -59,7 +59,7 @@ const ServicesPage = () => {
         <div className="container mx-auto px-4">
           <Link 
             to="/" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 group transition-colors animate-fade-in"
+            className="inline-flex items-center text-healthcare-primary hover:text-healthcare-secondary mb-8 group transition-colors animate-fade-in"
           >
             <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -69,7 +69,7 @@ const ServicesPage = () => {
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Our Comprehensive Services
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-healthcare-neutral max-w-3xl mx-auto">
               We offer assistance with personal care, household tasks, and the ongoing management 
               of a wide range of health conditions with dignity and compassion.
             </p>
@@ -98,7 +98,7 @@ const ServicesPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
                       <div className="bg-white/90 rounded-full p-3">
-                        <IconComponent className="h-6 w-6 text-blue-600" />
+                        <IconComponent className="h-6 w-6 text-healthcare-primary" />
                       </div>
                     </div>
                   </div>
@@ -108,14 +108,14 @@ const ServicesPage = () => {
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-healthcare-neutral mb-4 leading-relaxed">
                       {service.description}
                     </p>
 
                     <ul className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                        <li key={featureIndex} className="flex items-center text-sm text-healthcare-neutral">
+                          <div className="w-2 h-2 bg-healthcare-primary rounded-full mr-3"></div>
                           {feature}
                         </li>
                       ))}
@@ -134,3 +134,4 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+

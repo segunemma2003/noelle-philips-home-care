@@ -41,7 +41,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <Link 
             to="/" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 group transition-colors animate-fade-in"
+            className="inline-flex items-center text-healthcare-primary hover:text-healthcare-secondary mb-8 group transition-colors animate-fade-in"
           >
             <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -52,7 +52,7 @@ const AboutPage = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 About Our Mission
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-healthcare-neutral leading-relaxed">
                 At Noelle & Philips Home Health, we are dedicated to supporting individuals and families 
                 with compassionate, personalized care in the comfort of their own homes.
               </p>
@@ -82,14 +82,14 @@ const AboutPage = () => {
               return (
                 <div 
                   key={index}
-                  className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
+                  className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in group"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors">
-                    <IconComponent className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors" />
+                  <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-6 group-hover:bg-healthcare-primary transition-colors">
+                    <IconComponent className="h-8 w-8 text-healthcare-primary group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <p className="text-healthcare-neutral">{value.description}</p>
                 </div>
               );
             })}
@@ -111,11 +111,11 @@ const AboutPage = () => {
             
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center space-x-3">
-                <Award className="h-8 w-8 text-blue-600" />
+                <Award className="h-8 w-8 text-healthcare-primary" />
                 <h3 className="text-3xl font-bold text-gray-900">Our Dedicated Team</h3>
               </div>
               
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-healthcare-neutral leading-relaxed">
                 At Noelle & Philips Home Health, we take pride in our staff's quality, integrity, 
                 and professionalism. Each team member is carefully selected through a comprehensive 
                 screening process to ensure they meet our high standards of care and compassion.
@@ -132,8 +132,8 @@ const AboutPage = () => {
                     className="flex items-start space-x-3 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{qualification}</span>
+                    <CheckCircle className="h-6 w-6 text-healthcare-accent mt-0.5 flex-shrink-0" />
+                    <span className="text-healthcare-neutral">{qualification}</span>
                   </div>
                 ))}
               </div>
@@ -143,7 +143,7 @@ const AboutPage = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 bg-blue-900">
+      <section className="py-20 bg-healthcare-primary">
         <div className="container mx-auto px-4 text-center animate-fade-in">
           <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Our Mission
@@ -162,3 +162,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

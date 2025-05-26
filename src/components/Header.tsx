@@ -9,10 +9,16 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    // Scroll to top when navigating to a new page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       {/* Top contact bar */}
-      <div className="bg-blue-900 text-white py-2">
+      <div className="bg-healthcare-primary text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1 hover:text-blue-200 transition-colors">
@@ -33,49 +39,53 @@ const Header = () => {
       {/* Main navigation */}
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-blue-900 hover:text-blue-700 transition-colors">
+          <Link to="/" onClick={handleLinkClick} className="text-2xl font-bold text-healthcare-primary hover:text-healthcare-secondary transition-colors">
             Noelle & Philips<br />
-            <span className="text-lg text-blue-600">Home Healthcare LLC</span>
+            <span className="text-lg text-healthcare-secondary">Home Healthcare LLC</span>
           </Link>
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-8">
             <Link 
               to="/"
+              onClick={handleLinkClick}
               className={`font-medium transition-all duration-300 ${
                 isActive('/') 
-                  ? 'text-blue-600 border-b-2 border-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300'
+                  ? 'text-healthcare-primary border-b-2 border-healthcare-primary' 
+                  : 'text-healthcare-neutral hover:text-healthcare-primary hover:border-b-2 hover:border-healthcare-secondary'
               }`}
             >
               Home
             </Link>
             <Link 
               to="/services"
+              onClick={handleLinkClick}
               className={`font-medium transition-all duration-300 ${
                 isActive('/services') 
-                  ? 'text-blue-600 border-b-2 border-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300'
+                  ? 'text-healthcare-primary border-b-2 border-healthcare-primary' 
+                  : 'text-healthcare-neutral hover:text-healthcare-primary hover:border-b-2 hover:border-healthcare-secondary'
               }`}
             >
               Services
             </Link>
             <Link 
               to="/about"
+              onClick={handleLinkClick}
               className={`font-medium transition-all duration-300 ${
                 isActive('/about') 
-                  ? 'text-blue-600 border-b-2 border-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300'
+                  ? 'text-healthcare-primary border-b-2 border-healthcare-primary' 
+                  : 'text-healthcare-neutral hover:text-healthcare-primary hover:border-b-2 hover:border-healthcare-secondary'
               }`}
             >
               About Us
             </Link>
             <Link 
               to="/contact"
+              onClick={handleLinkClick}
               className={`font-medium transition-all duration-300 ${
                 isActive('/contact') 
-                  ? 'text-blue-600 border-b-2 border-blue-600' 
-                  : 'text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-300'
+                  ? 'text-healthcare-primary border-b-2 border-healthcare-primary' 
+                  : 'text-healthcare-neutral hover:text-healthcare-primary hover:border-b-2 hover:border-healthcare-secondary'
               }`}
             >
               Contact
@@ -97,36 +107,36 @@ const Header = () => {
             <div className="flex flex-col space-y-4 pt-4">
               <Link 
                 to="/"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleLinkClick}
                 className={`font-medium text-left transition-colors ${
-                  isActive('/') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  isActive('/') ? 'text-healthcare-primary' : 'text-healthcare-neutral hover:text-healthcare-primary'
                 }`}
               >
                 Home
               </Link>
               <Link 
                 to="/services"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleLinkClick}
                 className={`font-medium text-left transition-colors ${
-                  isActive('/services') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  isActive('/services') ? 'text-healthcare-primary' : 'text-healthcare-neutral hover:text-healthcare-primary'
                 }`}
               >
                 Services
               </Link>
               <Link 
                 to="/about"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleLinkClick}
                 className={`font-medium text-left transition-colors ${
-                  isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  isActive('/about') ? 'text-healthcare-primary' : 'text-healthcare-neutral hover:text-healthcare-primary'
                 }`}
               >
                 About Us
               </Link>
               <Link 
                 to="/contact"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleLinkClick}
                 className={`font-medium text-left transition-colors ${
-                  isActive('/contact') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  isActive('/contact') ? 'text-healthcare-primary' : 'text-healthcare-neutral hover:text-healthcare-primary'
                 }`}
               >
                 Contact
@@ -140,3 +150,4 @@ const Header = () => {
 };
 
 export default Header;
+
