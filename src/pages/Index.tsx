@@ -122,7 +122,7 @@ const Index = () => {
             
             <div className="relative animate-scale-in">
               <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
                 alt="Healthcare professional with elderly patient"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover hover:scale-105 transition-transform duration-300"
               />

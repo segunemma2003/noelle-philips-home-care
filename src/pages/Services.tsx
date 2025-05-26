@@ -25,7 +25,7 @@ const ServicesPage = () => {
       title: "Chronic Disease Management",
       description: "Specialized care for diabetes, CHF, COPD, and other chronic conditions with ongoing support.",
       features: ["Diabetes Care", "Heart Failure Management", "COPD Support", "Regular Monitoring"],
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Brain,
@@ -39,14 +39,14 @@ const ServicesPage = () => {
       title: "Post-Surgical Care",
       description: "Comprehensive post-operative care and rehabilitation to ensure safe, effective recovery.",
       features: ["Incision Care", "Pain Management", "Recovery Monitoring", "Rehabilitation"],
-      image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1576091160549-9ca4ccb0b7c2?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Clipboard,
       title: "Health Education",
       description: "Patient and family education programs to promote understanding and self-care abilities.",
       features: ["Disease Education", "Medication Training", "Lifestyle Coaching", "Family Support"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -134,4 +134,3 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-

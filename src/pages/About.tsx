@@ -60,7 +60,7 @@ const AboutPage = () => {
             
             <div className="relative animate-scale-in">
               <img 
-                src="https://images.unsplash.com/photo-1576091160549-9ca4ccb0b7c2?auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
                 alt="Elderly person with caregiver"
                 className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
               />
@@ -103,7 +103,7 @@ const AboutPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-scale-in">
               <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
                 alt="Healthcare professional with elderly patient"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
@@ -162,4 +162,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
