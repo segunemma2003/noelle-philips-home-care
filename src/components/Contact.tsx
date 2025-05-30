@@ -1,5 +1,3 @@
-
-
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 
@@ -197,4 +195,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
