@@ -103,7 +103,7 @@ const AboutPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-scale-in">
               <img 
-                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
+                src="homecare2.jpg"
                 alt="Healthcare professional with elderly patient"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />

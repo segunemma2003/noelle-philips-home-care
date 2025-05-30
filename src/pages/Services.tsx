@@ -11,21 +11,21 @@ const ServicesPage = () => {
       title: "Skilled Nursing",
       description: "Licensed registered nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
       features: ["Wound Care", "Medication Management", "IV Therapy", "Health Monitoring"],
-      image: "nurse.jpg"
+      image: "homecare2.jpg"
     },
     {
       icon: Activity,
       title: "Physical Therapy",
       description: "Licensed physical therapists helping restore mobility, strength, and function through personalized treatment plans and therapeutic exercises.",
       features: ["Mobility Assessment", "Strength Training", "Balance & Fall Prevention", "Pain Management", "Post-Injury Rehabilitation", "Adaptive Equipment Training"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: UserCheck,
       title: "Occupational Therapy",
       description: "Occupational therapists focused on helping patients regain independence in daily activities and improve quality of life.",
       features: ["Activities of Daily Living", "Cognitive Assessment", "Home Safety Evaluation", "Adaptive Equipment", "Energy Conservation", "Fine Motor Skills Training"],
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Heart,
