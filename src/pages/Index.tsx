@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import { Heart, Users, Award, Activity, Stethoscope, Brain } from "lucide-react";
+import { Heart, Users, Award, Activity, Stethoscope, Brain, Shield, UserCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -10,17 +10,17 @@ const Index = () => {
     {
       icon: Stethoscope,
       title: "Skilled Nursing",
-      description: "Professional wound care, medication management, and IV therapy."
+      description: "Licensed RNs providing wound care, medication management, and health monitoring."
     },
     {
       icon: Activity,
-      title: "Rehabilitation",
-      description: "Physical, occupational, and speech therapy services."
+      title: "Physical Therapy",
+      description: "Restore mobility and strength through personalized rehabilitation programs."
     },
     {
-      icon: Brain,
-      title: "Specialized Care",
-      description: "Neurological and chronic disease management."
+      icon: UserCheck,
+      title: "Occupational Therapy",
+      description: "Help regain independence in daily activities and improve quality of life."
     }
   ];
 
@@ -122,7 +122,8 @@ const Index = () => {
             
             <div className="relative animate-scale-in">
               <img 
-                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
+                src="homecare.jpg"
+                // src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
                 alt="Healthcare professional with elderly patient"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover hover:scale-105 transition-transform duration-300"
               />

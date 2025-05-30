@@ -23,7 +23,7 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
               <Phone className="h-4 w-4" />
-              <span>(972) 555-0123</span>
+              <span>(682) 218 9747</span>
             </div>
             <div className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
               <Mail className="h-4 w-4" />
@@ -41,7 +41,7 @@ const Header = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 text-sm">
             <Phone className="h-4 w-4" />
-            <span>(972) 555-0123</span>
+            <span>(682) 218 9747</span>
           </div>
         </div>
       </div>

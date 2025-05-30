@@ -28,7 +28,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Phone className="h-4 w-4" />
-                <span>(972) 555-0123</span>
+                <span>(682) 218 9747</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <Phone className="h-4 w-4" />
+                <span>(469) 218-9747</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Mail className="h-4 w-4" />
@@ -41,12 +45,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Skilled Nursing</li>
+             <li>Skilled Nursing</li>
               <li>Physical Therapy</li>
-              <li>Chronic Disease Management</li>
-              <li>Post-Surgical Care</li>
-              <li>Neurological Care</li>
-              <li>Health Education</li>
+              <li>Occupational Therapy</li>
+              <li>Home Health Aide</li>
+              <li>Social Worker</li>
             </ul>
           </div>
 
@@ -56,7 +59,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-300">
               <div>
                 <p className="font-medium">Monday - Friday</p>
-                <p>8:00 AM - 6:00 PM</p>
+                <p>8:00 AM - 5:00 PM</p>
               </div>
               <div>
                 <p className="font-medium">Weekend</p>
@@ -64,7 +67,7 @@ const Footer = () => {
               </div>
               <div className="mt-4 p-3 bg-blue-900 rounded-lg">
                 <p className="text-sm text-blue-100">
-                  <strong>24/7 Emergency Support</strong><br />
+                
                   Always here when you need us most
                 </p>
               </div>

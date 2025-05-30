@@ -1,43 +1,36 @@
-
-import { Activity, Brain, Droplets, Stethoscope, Thermometer, Users, Shield, Clipboard } from "lucide-react";
+import { Activity, Users, Stethoscope, Heart, UserCheck } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Stethoscope,
       title: "Skilled Nursing",
-      description: "Comprehensive wound care, medication management, and IV therapy delivered by licensed professionals.",
-      features: ["Wound Care", "Medication Management", "IV Therapy", "Health Monitoring"]
+      description: "Licensed registered nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
+      features: ["Wound Care Management", "Medication Administration", "IV Therapy & Infusions", "Health Assessment & Monitoring", "Chronic Disease Management", "Post-Surgical Care"]
     },
     {
       icon: Activity,
-      title: "Rehabilitation Therapy",
-      description: "Physical, occupational, and speech therapy to help restore independence and improve quality of life.",
-      features: ["Physical Therapy", "Occupational Therapy", "Speech Therapy", "Recovery Planning"]
+      title: "Physical Therapy",
+      description: "Licensed physical therapists helping restore mobility, strength, and function through personalized treatment plans and therapeutic exercises.",
+      features: ["Mobility Assessment", "Strength Training", "Balance & Fall Prevention", "Pain Management", "Post-Injury Rehabilitation", "Adaptive Equipment Training"]
     },
     {
-      icon: Thermometer,
-      title: "Chronic Disease Management",
-      description: "Specialized care for diabetes, CHF, COPD, and other chronic conditions with ongoing support.",
-      features: ["Diabetes Care", "Heart Failure Management", "COPD Support", "Regular Monitoring"]
+      icon: UserCheck,
+      title: "Occupational Therapy",
+      description: "Occupational therapists focused on helping patients regain independence in daily activities and improve quality of life.",
+      features: ["Activities of Daily Living", "Cognitive Assessment", "Home Safety Evaluation", "Adaptive Equipment", "Energy Conservation", "Fine Motor Skills Training"]
     },
     {
-      icon: Brain,
-      title: "Neurological & Orthopedic Care",
-      description: "Specialized support for neurological conditions and orthopedic recovery needs.",
-      features: ["Stroke Recovery", "Brain Injury Care", "Joint Replacement", "Mobility Support"]
+      icon: Heart,
+      title: "Home Health Aide",
+      description: "Compassionate home health aides providing personal care assistance and support with daily living activities.",
+      features: ["Personal Care Assistance", "Bathing & Grooming", "Light Housekeeping", "Meal Preparation", "Companionship", "Transportation Assistance"]
     },
     {
-      icon: Shield,
-      title: "Post-Surgical Care",
-      description: "Comprehensive post-operative care and rehabilitation to ensure safe, effective recovery.",
-      features: ["Incision Care", "Pain Management", "Recovery Monitoring", "Rehabilitation"]
-    },
-    {
-      icon: Clipboard,
-      title: "Health Education",
-      description: "Patient and family education programs to promote understanding and self-care abilities.",
-      features: ["Disease Education", "Medication Training", "Lifestyle Coaching", "Family Support"]
+      icon: Users,
+      title: "Social Worker",
+      description: "Licensed social workers providing psychosocial support, resource coordination, and advocacy for patients and families.",
+      features: ["Psychosocial Assessment", "Resource Coordination", "Family Counseling", "Discharge Planning", "Community Resources", "Crisis Intervention"]
     }
   ];
 
@@ -49,8 +42,8 @@ const Services = () => {
             Our Comprehensive Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer assistance with personal care, household tasks, and the ongoing management 
-            of a wide range of health conditions with dignity and compassion.
+            We provide a full range of home healthcare services delivered by licensed professionals 
+            to support your health and independence in the comfort of your own home.
           </p>
         </div>
 
@@ -89,30 +82,13 @@ const Services = () => {
 
         <div className="mt-16 bg-blue-900 rounded-2xl p-8 lg:p-12 text-center">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Additional Specialized Care
+            Coordinated Care Approach
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            <div className="text-white">
-              <Droplets className="h-12 w-12 mx-auto mb-3 text-blue-300" />
-              <h4 className="font-semibold mb-2">Pain & Symptom Management</h4>
-              <p className="text-blue-100 text-sm">Comprehensive comfort care</p>
-            </div>
-            <div className="text-white">
-              <Shield className="h-12 w-12 mx-auto mb-3 text-blue-300" />
-              <h4 className="font-semibold mb-2">Fall Risk Assessment</h4>
-              <p className="text-blue-100 text-sm">Prevention and safety planning</p>
-            </div>
-            <div className="text-white">
-              <Users className="h-12 w-12 mx-auto mb-3 text-blue-300" />
-              <h4 className="font-semibold mb-2">Respite Care</h4>
-              <p className="text-blue-100 text-sm">Support for family caregivers</p>
-            </div>
-            <div className="text-white">
-              <Activity className="h-12 w-12 mx-auto mb-3 text-blue-300" />
-              <h4 className="font-semibold mb-2">Companionship</h4>
-              <p className="text-blue-100 text-sm">Caring presence and support</p>
-            </div>
-          </div>
+          <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            Our interdisciplinary team works together to create a comprehensive care plan 
+            tailored to your specific needs, ensuring seamless coordination between all services 
+            for optimal health outcomes.
+          </p>
         </div>
       </div>
     </section>

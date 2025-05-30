@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="relative animate-scale-in">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
               <img 
-                src="https://images.unsplash.com/photo-1576091160549-9ca4ccb0b7c2?auto=format&fit=crop&w=800&q=80"
+                src="indeximage.jpg"
                 alt="Elderly person receiving compassionate home healthcare"
                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-300"
               />
