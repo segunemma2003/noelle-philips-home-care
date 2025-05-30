@@ -1,5 +1,5 @@
 
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Fax } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -57,7 +57,16 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900">Phone</h4>
                   <p className="text-gray-600">(682) 218 9747</p>
-               
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-blue-100 rounded-full p-3">
+                  <Fax className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900">Fax</h4>
+                  <p className="text-gray-600">(469) 218-9747</p>
                 </div>
               </div>
 
@@ -89,7 +98,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Office Hours</h4>
-                  <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br />Weekend: On-call services available</p>
+                  <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM<br />Weekend: On-call services available</p>
                 </div>
               </div>
             </div>
@@ -98,7 +107,7 @@ const Contact = () => {
               <h4 className="font-semibold mb-2">Emergency Care</h4>
               <p className="text-blue-100">
                 For urgent medical situations, please call 911. For non-emergency after-hours 
-                support, our on-call team is available 24/7.
+                support, our on-call team is available.
               </p>
             </div>
           </div>

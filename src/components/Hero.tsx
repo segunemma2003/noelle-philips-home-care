@@ -62,8 +62,8 @@ const Hero = () => {
           <div className="relative animate-scale-in">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
               <img 
-                src="indeximage.jpg"
-                alt="Elderly person receiving compassionate home healthcare"
+                src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                alt="Modern healthcare building providing home healthcare services"
                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -76,8 +76,8 @@ const Hero = () => {
                   <Heart className="h-6 w-6 text-healthcare-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">24/7 Support</h4>
-                  <p className="text-sm text-healthcare-neutral">Always here when you need us</p>
+                  <h4 className="font-semibold text-gray-900">Professional Support</h4>
+                  <p className="text-sm text-healthcare-neutral">Here when you need us</p>
                 </div>
               </div>
             </div>
@@ -89,4 +89,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
