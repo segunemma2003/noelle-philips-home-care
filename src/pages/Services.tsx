@@ -24,7 +24,7 @@ const ServicesPage = () => {
       title: "Occupational Therapy",
       description: "Occupational therapists focused on helping patients regain independence in daily activities and improve quality of life.",
       features: ["Activities of Daily Living", "Cognitive Assessment", "Home Safety Evaluation", "Adaptive Equipment", "Energy Conservation", "Fine Motor Skills Training"],
-      image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Heart,
@@ -38,7 +38,7 @@ const ServicesPage = () => {
       title: "Social Worker",
       description: "Licensed social workers providing psychosocial support, resource coordination, and advocacy for patients and families.",
       features: ["Psychosocial Assessment", "Resource Coordination", "Family Counseling", "Discharge Planning", "Community Resources", "Crisis Intervention"],
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
     }
   ];
 

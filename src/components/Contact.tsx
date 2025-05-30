@@ -1,5 +1,6 @@
 
-import { Phone, Mail, MapPin, Clock, Send, Fax } from "lucide-react";
+
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -62,7 +63,7 @@ const Contact = () => {
 
               <div className="flex items-start space-x-4">
                 <div className="bg-blue-100 rounded-full p-3">
-                  <Fax className="h-6 w-6 text-blue-600" />
+                  <Phone className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Fax</h4>
@@ -196,3 +197,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
