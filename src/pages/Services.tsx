@@ -1,3 +1,4 @@
+
 import { Activity, Users, Stethoscope, Heart, UserCheck, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -10,35 +11,35 @@ const ServicesPage = () => {
       title: "Skilled Nursing",
       description: "Licensed registered nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
       features: ["Wound Care", "Medication Management", "IV Therapy", "Health Monitoring"],
-      image: "homecare2.jpg"
+      image: "nurse.jpg"
     },
     {
       icon: Activity,
       title: "Physical Therapy",
       description: "Licensed physical therapists helping restore mobility, strength, and function through personalized treatment plans and therapeutic exercises.",
       features: ["Mobility Assessment", "Strength Training", "Balance & Fall Prevention", "Pain Management", "Post-Injury Rehabilitation", "Adaptive Equipment Training"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: UserCheck,
       title: "Occupational Therapy",
       description: "Occupational therapists focused on helping patients regain independence in daily activities and improve quality of life.",
       features: ["Activities of Daily Living", "Cognitive Assessment", "Home Safety Evaluation", "Adaptive Equipment", "Energy Conservation", "Fine Motor Skills Training"],
-      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Heart,
       title: "Home Health Aide",
       description: "Compassionate home health aides providing personal care assistance and support with daily living activities.",
       features: ["Personal Care Assistance", "Bathing & Grooming", "Light Housekeeping", "Meal Preparation", "Companionship", "Transportation Assistance"],
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+      image: "homecare.jpg"
     },
     {
       icon: Users,
       title: "Social Worker",
       description: "Licensed social workers providing psychosocial support, resource coordination, and advocacy for patients and families.",
       features: ["Psychosocial Assessment", "Resource Coordination", "Family Counseling", "Discharge Planning", "Community Resources", "Crisis Intervention"],
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
