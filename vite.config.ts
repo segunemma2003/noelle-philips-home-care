@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   // Add these for shared hosting:
-  base: "/", // Change to "/subfolder/" if deploying to a subdirectory
+  base: "/dist/", // Change to "/subfolder/" if deploying to a subdirectory
   build: {
     outDir: "dist",
     assetsDir: "assets",
