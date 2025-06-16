@@ -5,7 +5,7 @@ const Services = () => {
     {
       icon: Stethoscope,
       title: "Skilled Nursing",
-      description: "Licensed registered nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
+      description: "Skilled nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
       features: ["Wound Care Management", "Medication Administration", "IV Therapy & Infusions", "Health Assessment & Monitoring", "Chronic Disease Management", "Post-Surgical Care"]
     },
     {

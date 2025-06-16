@@ -9,7 +9,7 @@ const ServicesPage = () => {
     {
       icon: Stethoscope,
       title: "Skilled Nursing",
-      description: "Licensed registered nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
+      description: "Skilled nurses providing comprehensive medical care including wound care, medication management, IV therapy, and health monitoring in your home.",
       features: ["Wound Care", "Medication Management", "IV Therapy", "Health Monitoring"],
       image: "homecare2.jpg"
     },

@@ -65,7 +65,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Fax</h4>
-                  <p className="text-gray-600">(469) 218-9747</p>
+                  <p className="text-gray-600">(469) 780-7539</p>
                 </div>
               </div>
 
@@ -97,7 +97,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Office Hours</h4>
-                  <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM<br />Weekend: On-call services available</p>
+                  <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM<br /></p>
                 </div>
               </div>
             </div>

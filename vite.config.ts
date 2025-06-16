@@ -11,12 +11,25 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  // Add these for shared hosting:
+  base: "/", // Change to "/subfolder/" if deploying to a subdirectory
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: false, // Disable sourcemaps for production to save space
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
     },
   },
 }));

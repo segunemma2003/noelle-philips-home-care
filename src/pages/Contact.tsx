@@ -75,7 +75,7 @@ const ContactPage = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
                     <p className="text-gray-600">(682) 218 9747</p>
-                    <p className="text-sm text-gray-500">Available 24/7 for emergencies</p>
+                   
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Office Hours</h4>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br />Weekend: On-call services available</p>
+                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br /></p>
                   </div>
                 </div>
               </div>
@@ -115,8 +115,8 @@ const ContactPage = () => {
               <div className="bg-blue-900 rounded-xl p-6 text-white animate-pulse">
                 <h4 className="font-semibold mb-2">Emergency Care</h4>
                 <p className="text-blue-100">
-                  For urgent medical situations, please call 911. For non-emergency after-hours 
-                  support, our on-call team is available 24/7.
+                For urgent medical situations, please call 911. For non-emergency after-hours 
+                support, our on-call team is available.
                 </p>
               </div>
             </div>

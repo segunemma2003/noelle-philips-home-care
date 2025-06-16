@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMS Workflow Diagram - Interactive</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .title {
+            margin: 0;
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .zoom-level {
+            background: rgba(255,255,255,0.9);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            color: #333;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .diagram-container {
+            flex: 1;
+            overflow: auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        .diagram-wrapper {
+            transform-origin: top left;
+            transition: transform 0.3s ease;
+            min-width: 100%;
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #diagram {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            max-width: none !important;
+        }
+
+        .diagram-container::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        .diagram-container::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+        }
+
+        .diagram-container::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 6px;
+        }
+
+        .diagram-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .instructions {
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-wrap: wrap;
+            }
+            
+            .title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">PMS Workflow Diagram</h1>
+            <div class="controls">
+                <button class="btn" onclick="zoomIn()">🔍 Zoom In</button>
+                <button class="btn" onclick="zoomOut()">🔍 Zoom Out</button>
+                <button class="btn" onclick="resetZoom()">↻ Reset</button>
+                <button class="btn" onclick="fitToScreen()">📱 Fit Screen</button>
+                <button class="btn" onclick="downloadPNG()">📥 Download PNG</button>
+                <div class="zoom-level" id="zoomLevel">100%</div>
+                <div class="instructions">💡 Use scroll wheel to zoom, click and drag to pan</div>
+            </div>
+        </div>
+        
+        <div class="diagram-container" id="diagramContainer">
+            <div class="diagram-wrapper" id="diagramWrapper">
+                <div id="diagram"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const zoomStep = 0.2;
+        const minZoom = 0.1;
+        const maxZoom = 3;
+
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                nodeSpacing: 50,
+                rankSpacing: 80,
+                curve: 'basis'
+            }
+        });
+
+        // Mermaid diagram definition
+        const diagramDefinition = `
+flowchart TD
+    %% Initial Setup Flow
+    A[ADMIN<br/>System Administrator] 
+    B[OWNER<br/>Property Owner]
+    C[PLATFORM REGISTRATION<br/>Owner Account Setup]
+    D[PROPERTY SUGGESTION<br/>Owner Submits Details]
+    E[ADMIN REVIEW<br/>Property Verification]
+    F{APPROVAL<br/>DECISION}
+    G[REJECTION NOTICE<br/>Notify Owner]
+    H[BEDS24 INTEGRATION<br/>Admin Clicks Enlist Button]
+    I[BEDS24 PLATFORM<br/>External Booking System]
+    J[PROPERTY ID<br/>Received from Beds24]
+    K[DATABASE UPDATE<br/>Save Property Data]
+    L[PROPERTY LISTED<br/>Successfully Active]
+    
+    A -->|Sends Invitation| B
+    B -->|Accepts Invitation| C
+    C -->|Owner Logged In| D
+    D -->|Property Details Submitted| E
+    E -->|Review Process| F
+    F -->|Rejected| G
+    G -->|Resubmit| D
+    F -->|Approved| H
+    H -->|API Call| I
+    I -->|Returns Property ID| J
+    J -->|Save Data| K
+    K -->|Link ID to Owner| L
+    
+    %% Property Update Flow
+    M[PROPERTY UPDATE<br/>Owner Modifies Details]
+    N[AUTO-SYNC BEDS24<br/>Update External Platform]
+    O[UPDATE LOCAL DB<br/>Update Internal Database]
+    P[SYNC COMPLETE<br/>Both Platforms Updated]
+    
+    L --> M
+    M -->|Using Property ID| N
+    M -->|Simultaneous Update| O
+    N --> P
+    O --> P
+    
+    %% Trust Level Creation
+    Q[TRUST LEVEL SETUP<br/>Owner Creates Levels]
+    R[CONFIGURE LEVELS<br/>Set Properties and Pricing]
+    S[VOUCHER GENERATION<br/>Create Discount Codes]
+    T[SAVE VOUCHERS<br/>Store ID and Discount Percent]
+    U[LEVEL DATABASE<br/>Trust Level Data Stored]
+    
+    L --> Q
+    Q -->|Define Parameters| R
+    R -->|Items Pricing Discounts| S
+    S -->|Format level1_owner_name| T
+    T -->|Database Storage| U
+    
+    %% User Invitation to Trust Levels
+    V1[OWNER INVITES USERS<br/>Send Trust Level Invitations]
+    W1[USER INVITATION<br/>Receives Trust Level Access]
+    X1[USER ACCEPTS<br/>Joins Trust Level]
+    Y1[ACCESS GRANTED<br/>Trust Level Permissions Set]
+    
+    U --> V1
+    V1 -->|Send Invitation| W1
+    W1 -->|User Accepts| X1
+    X1 -->|Update Permissions| Y1
+    
+    %% User Booking Flow
+    V[USER GUEST<br/>Platform Visitor]
+    W[BROWSE PROPERTIES<br/>Search Available Listings]
+    X[FILTERED VIEW<br/>Trust Level Items Only]
+    Y2[TRUST LEVEL PRICING<br/>View Accessible Amounts]
+    Z1[SELECT PROPERTY<br/>Choose from Available]
+    Y[AUTO-APPLY VOUCHER<br/>Trust Level Discount]
+    Z[PAYMENT REDIRECT<br/>Add Voucher to URL]
+    AA1[PAYMENT GATEWAY<br/>Process Transaction]
+    AA[PAYMENT SUCCESS<br/>User Completes Payment]
+    
+    V -->|Search Properties| W
+    W -->|Filter by Trust Level| X
+    X -->|Display Pricing| Y2
+    Y2 -->|Select Property| Z1
+    Z1 -->|Checkout Initiated| Y
+    Y -->|Pre-set Discount| Z
+    Z -->|Redirect with Pricing| AA1
+    AA1 -->|Payment Processing| AA
+    
+    %% Payment Processing and Notifications
+    BB[BEDS24 WEBHOOK<br/>Payment Notification Triggered]
+    CC[WEBHOOK RECEIVED<br/>Platform Processes Data]
+    DD[BOOKING UPDATE<br/>Update Status in Database]
+    EE[EMAIL OWNER<br/>Payment Notification Sent]
+    
+    AA -->|Payment Completed| BB
+    BB -->|Payment Details| CC
+    CC -->|Process Data| DD
+    DD -->|Send Notification| EE
+    
+    %% Fund Management
+    FF[OWNER NOTIFICATION<br/>Receives Payment Alert]
+    GG[REQUEST FUNDS<br/>Manual Fund Request]
+    HH[DAILY PAYOUT<br/>Automatic End-of-Day]
+    II[PROCESS TRANSFER<br/>Handle Fund Request]
+    JJ[FUNDS TRANSFERRED<br/>Money Sent to Owner]
+    
+    EE --> FF
+    FF -->|Option 1| GG
+    FF -->|Option 2| HH
+    GG --> II
+    HH --> II
+    II --> JJ
+    
+    %% Styling Classes
+    classDef adminClass fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef ownerClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef platformClass fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef beds24Class fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef databaseClass fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef userClass fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef paymentClass fill:#f1f8e9,stroke:#558b2f,stroke-width:2px
+    classDef voucherClass fill:#faf2ff,stroke:#9c27b0,stroke-width:2px
+    
+    %% Apply Classes
+    class A adminClass
+    class B,V1,GG,FF ownerClass
+    class C,E,F,H,J,K,L,O,P,CC,DD,II,W1,X1,Y1 platformClass
+    class I,N,BB beds24Class
+    class T,U,D,M databaseClass
+    class V,W,X,Y2,Z1,AA userClass
+    class Y,AA1,HH,JJ,Z paymentClass
+    class Q,R,S,G voucherClass
+        `;
+
+        // Render the diagram
+        mermaid.render('mermaid-diagram', diagramDefinition).then(function(result) {
+            document.getElementById('diagram').innerHTML = result.svg;
+            
+            // Add mouse wheel zoom functionality
+            const container = document.getElementById('diagramContainer');
+            container.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                
+                if (e.deltaY < 0) {
+                    zoomIn();
+                } else {
+                    zoomOut();
+                }
+            });
+
+            // Add pan functionality
+            let isPanning = false;
+            let startX, startY, scrollLeft, scrollTop;
+
+            container.addEventListener('mousedown', function(e) {
+                if (e.target === container || e.target.closest('.diagram-wrapper')) {
+                    isPanning = true;
+                    startX = e.pageX - container.offsetLeft;
+                    startY = e.pageY - container.offsetTop;
+                    scrollLeft = container.scrollLeft;
+                    scrollTop = container.scrollTop;
+                    container.style.cursor = 'grabbing';
+                }
+            });
+
+            container.addEventListener('mouseleave', function() {
+                isPanning = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mouseup', function() {
+                isPanning = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mousemove', function(e) {
+                if (!isPanning) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const y = e.pageY - container.offsetTop;
+                const walkX = (x - startX) * 2;
+                const walkY = (y - startY) * 2;
+                container.scrollLeft = scrollLeft - walkX;
+                container.scrollTop = scrollTop - walkY;
+            });
+        });
+
+        function updateZoom() {
+            const wrapper = document.getElementById('diagramWrapper');
+            wrapper.style.transform = `scale(${currentZoom})`;
+            document.getElementById('zoomLevel').textContent = Math.round(currentZoom * 100) + '%';
+        }
+
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom += zoomStep;
+                updateZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom -= zoomStep;
+                updateZoom();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            updateZoom();
+            
+            // Reset scroll position
+            const container = document.getElementById('diagramContainer');
+            container.scrollTop = 0;
+            container.scrollLeft = 0;
+        }
+
+        function fitToScreen() {
+            const container = document.getElementById('diagramContainer');
+            const diagram = document.getElementById('diagram');
+            
+            if (diagram.firstChild) {
+                const containerWidth = container.clientWidth;
+                const containerHeight = container.clientHeight;
+                const diagramWidth = diagram.scrollWidth;
+                const diagramHeight = diagram.scrollHeight;
+                
+                const scaleX = (containerWidth - 40) / diagramWidth;
+                const scaleY = (containerHeight - 40) / diagramHeight;
+                
+                currentZoom = Math.min(scaleX, scaleY, 1);
+                updateZoom();
+                
+                // Center the diagram
+                setTimeout(() => {
+                    container.scrollLeft = (diagram.scrollWidth * currentZoom - containerWidth) / 2;
+                    container.scrollTop = (diagram.scrollHeight * currentZoom - containerHeight) / 2;
+                }, 100);
+            }
+        }
+
+        function downloadPNG() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            // Show loading state
+            button.innerHTML = '⏳ Generating...';
+            button.disabled = true;
+            
+            const diagram = document.getElementById('diagram');
+            
+            // Configure html2canvas options for better quality
+            const options = {
+                useCORS: true,
+                allowTaint: true,
+                scale: 2, // Higher resolution
+                backgroundColor: '#ffffff',
+                width: diagram.scrollWidth,
+                height: diagram.scrollHeight,
+                scrollX: 0,
+                scrollY: 0
+            };
+            
+            html2canvas(diagram, options).then(canvas => {
+                // Create download link
+                const link = document.createElement('a');
+                link.download = `PMS-Workflow-Diagram-${new Date().toISOString().slice(0,10)}.png`;
+                link.href = canvas.toDataURL('image/png');
+                
+                // Trigger download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Reset button
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                // Show success message
+                showNotification('📥 Diagram downloaded successfully!');
+            }).catch(error => {
+                console.error('Error generating PNG:', error);
+                button.innerHTML = originalText;
+                button.disabled = false;
+                showNotification('❌ Error generating PNG. Please try again.', 'error');
+            });
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                border-radius: 25px;
+                color: white;
+                font-weight: 500;
+                z-index: 10000;
+                animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+                ${type === 'error' ? 
+                    'background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);' : 
+                    'background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);'}
+            `;
+            notification.textContent = message;
+            
+            // Add keyframe animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                document.body.removeChild(notification);
+                document.head.removeChild(style);
+            }, 3000);
+        }
+
+        // Fit to screen on load
+        window.addEventListener('load', function() {
+            setTimeout(fitToScreen, 500);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            setTimeout(fitToScreen, 100);
+        });
+    </script>
+</body>
+</html>

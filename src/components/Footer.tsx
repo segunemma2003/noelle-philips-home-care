@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Phone className="h-4 w-4" />
-                <span>Fax: (469) 218-9747</span>
+                <span>Fax: (469) 780-7539</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Mail className="h-4 w-4" />
@@ -61,10 +61,7 @@ const Footer = () => {
                 <p className="font-medium">Monday - Friday</p>
                 <p>8:00 AM - 5:00 PM</p>
               </div>
-              <div>
-                <p className="font-medium">Weekend</p>
-                <p>On-call services available</p>
-              </div>
+              
               <div className="mt-4 p-3 bg-blue-900 rounded-lg">
                 <p className="text-sm text-blue-100">
                   Professional care when you need it most
