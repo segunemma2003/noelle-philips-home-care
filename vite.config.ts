@@ -1,9 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
+// Safely import lovable-tagger
+let componentTagger;
+try {
+  const lovableTagger = await import("lovable-tagger");
+  componentTagger = lovableTagger.componentTagger;
+} catch (e) {
+  // Fallback if lovable-tagger is not available
+  componentTagger = () => null;
+}
+
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -11,19 +19,18 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    mode === 'development' && componentTagger && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Add these for shared hosting:
-  base: "/dist/", // Change to "/subfolder/" if deploying to a subdirectory
+  base: "/",
   build: {
     outDir: "dist",
     assetsDir: "assets",
-    sourcemap: false, // Disable sourcemaps for production to save space
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
