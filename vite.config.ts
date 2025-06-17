@@ -1,16 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-
-// Safely import lovable-tagger
-let componentTagger;
-try {
-  const lovableTagger = await import("lovable-tagger");
-  componentTagger = lovableTagger.componentTagger;
-} catch (e) {
-  // Fallback if lovable-tagger is not available
-  componentTagger = () => null;
-}
+import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -19,14 +10,15 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger && componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/",
+  // Fix for shared hosting
+  base: "./", // Use relative paths
   build: {
     outDir: "dist",
     assetsDir: "assets",
@@ -36,6 +28,10 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ['react', 'react-dom'],
         },
+        // Ensure consistent asset naming
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       },
     },
   },
